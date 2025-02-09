@@ -1,50 +1,151 @@
+/* 🔹 Define CSS Variables */
+:root {
+    --planet-color: #FFF; /* Uniform grayscale color for planets */
+    --card-bg: rgb(145, 144, 144);
+}
+
+/* General Page Styling */
 body {
     font-family: Helvetica, sans-serif;
-    color: #EAE8FF;
-    background: #2D3142;
-    padding: 0 40px;
+    color: #f1f1f5;
+    background: #23242a;
+    padding: 80px 60px 60px; /* Increased top padding */
     text-align: center;
 }
 
-nav {
-    margin: 40px auto 0 auto;
-    width: 250px;
-    border-radius: 50px;
-    background: #212431;
-}
 
-nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    list-style-type: none;
-    margin: 0;
-}
-
-nav ul li a {
-    display: inline-block;
-    padding: 20px;
-    color: #EAE8FF;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
+/* Page Title */
 h1 {
-    font-size: 8em;
-    letter-spacing: -2px;
+    font-size: 5em;
+    letter-spacing: -1px;
+    font-weight: bold;
+    text-align: left;
+    width: fit-content;
+    margin: 0;
+    position: relative; /* Enables left adjustment */
+    left: -73px; /* Adjust this until it aligns perfectly */
 }
 
-h1 strong {
-    background: rgb(34,193,195);
-    background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+
+/* Ensure Sun & Planet Grid Stay Centered */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1400px; /* Increased width */
+    margin: auto;
+    padding-top: 50px; /* Lowered everything */
 }
 
-img.about {
-    opacity: 0.5;
+/* Grid Layout for Sun and Planets */
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px; /* More space between Sun and planets */
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* Planet Grid */
+.planet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px; /* More spacing between planet cards */
+    justify-content: center;
+}
+
+/* 🔹 Sun Card: Scaled Up */
+.sun-card {
+    width: 360px !important; /* Increased width */
+    height: 560px !important; /* Increased height */
+    padding: 60px;
+    font-size: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+    background: rgba(245, 225, 225, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Keep Sun's Planet Bigger */
+.sun-card .planet {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.6);
+}
+
+/* Sun Card Text */
+.sun-card h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black; /* Ensures black text */
+}
+
+.sun-card p {
+    font-size: 1.5em;
+    color: #383737;
+}
+
+/* 🔹 Planet Cards: Keep Them Large */
+.card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 200px;  /* Bigger cards */
+    height: 250px; /* Increased height */
+    transition: transform 0.2s ease-in-out, background 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Planets Inside Cards: Bigger */
+.planet {
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    background-color: var(--planet-color); /* Use grayscale variable */
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* 🔹 Planet Card Text */
+.card h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+}
+
+.card p{
+    font-size: 1.2em;
+    color: #383737;
+}
+
+/* Hover Effect for All Cards */
+.card:hover, .sun-card:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    background: rgba(255, 255, 255, 0.2); /* Lighten background */
+    transition: transform 0.2s ease-in-out, background 0.3s ease;
+}
+
+/* Hover Effect for Planets */
+.planet:hover {
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8); /* Glow effect */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 50px;
+    font-size: 1em;
+    color: #aaa;
 }
